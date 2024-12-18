@@ -1,0 +1,43 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "columns",  
+    "description": "List of columns", 
+    "type": "object",
+    "required": [
+      "columns"
+    ],
+    "properties": {
+      "columns": { 
+        "title": "DynamicForm",  
+        "description": "A Dynamic to be create from columns",  
+        "type": "array", 
+        "default": [],
+        "uniqueItems": true,
+        "items": {
+          "title": "Column",  
+          "description": "A Column of field of a dynamic form",  
+          "type": "object",
+          "properties": {    
+            "columnName": {      
+              "description": "The unique Name for a column",      
+              "type": "string"          
+            },    
+            "columnType": {      
+              "description": "Type of the column",      
+              "type": "string",
+              "enum": ["string", "integer", "date", "decimal"]
+            },
+            "textLength": {      
+              "description": "Length of string column",      
+              "type": "integer"    
+            },
+            "required": {      
+              "description": "is field is required",      
+              "type": "boolean"    
+            }
+          },
+          "required": [ "columnName", "columnType" ]
+        }
+      }
+    }
+}
